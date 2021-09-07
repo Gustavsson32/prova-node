@@ -28,7 +28,7 @@ const authenticateJWT = (req, res, next) => {
 // associa as rotas ao seu método do JogadorController
 routes.get('/jogadors', authenticateJWT, jogadors.findAll);
 routes.get('/jogadors/:id', jogadors.show);
-routes.post('/jogadors', jogadors.store);
+routes.post('/jogadors', authenticateJWT, jogadors.store);
 routes.put('/jogadors/:id', jogadors.update);
 routes.delete('/jogadors/:id', jogadors.destroy);
 module.exports = routes;

@@ -32,7 +32,7 @@ app.post('/login', (req, res) => {
   if (findUser) {
     // Gera um token de acesso
     const accessToken = jwt.sign({ mail: findUser.mail }, accessTokenSecret, {
-      expiresIn: '2m',
+      expiresIn: '20m',
     });
     const user = { name: findUser.name, mail: findUser.mail };
     res.json({
